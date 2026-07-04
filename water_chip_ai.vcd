@@ -1,0 +1,437 @@
+$date
+	Sat Jul  4 04:48:06 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_water_chip_ai $end
+$var wire 1 ! contamination_alarm $end
+$var reg 8 " arsenic_sensor [7:0] $end
+$var reg 8 # cadmium_sensor [7:0] $end
+$var reg 8 $ chromium_sensor [7:0] $end
+$var reg 1 % clk $end
+$var reg 8 & lead_sensor [7:0] $end
+$var reg 8 ' mercury_sensor [7:0] $end
+$var reg 1 ( rst $end
+$scope module dut $end
+$var wire 8 ) arsenic_sensor [7:0] $end
+$var wire 8 * cadmium_sensor [7:0] $end
+$var wire 8 + chromium_sensor [7:0] $end
+$var wire 1 % clk $end
+$var wire 8 , lead_sensor [7:0] $end
+$var wire 8 - mercury_sensor [7:0] $end
+$var wire 1 ( rst $end
+$var wire 11 . total [10:0] $end
+$var wire 8 / mercury_norm [7:0] $end
+$var wire 8 0 mercury_data [7:0] $end
+$var wire 8 1 maximum [7:0] $end
+$var wire 8 2 lead_norm [7:0] $end
+$var wire 8 3 lead_data [7:0] $end
+$var wire 1 ! contamination_alarm $end
+$var wire 1 4 contamination $end
+$var wire 8 5 chromium_norm [7:0] $end
+$var wire 8 6 chromium_data [7:0] $end
+$var wire 8 7 cadmium_norm [7:0] $end
+$var wire 8 8 cadmium_data [7:0] $end
+$var wire 10 9 average [9:0] $end
+$var wire 8 : arsenic_norm [7:0] $end
+$var wire 8 ; arsenic_data [7:0] $end
+$scope module ai $end
+$var wire 1 % clk $end
+$var wire 1 ( rst $end
+$var wire 8 < mercury [7:0] $end
+$var wire 8 = lead [7:0] $end
+$var wire 8 > chromium [7:0] $end
+$var wire 8 ? cadmium [7:0] $end
+$var wire 8 @ arsenic [7:0] $end
+$var parameter 32 A THRESHOLD $end
+$var parameter 32 B W_ARSENIC $end
+$var parameter 32 C W_CADMIUM $end
+$var parameter 32 D W_CHROMIUM $end
+$var parameter 32 E W_LEAD $end
+$var parameter 32 F W_MERCURY $end
+$var reg 1 4 contamination $end
+$var reg 32 G score [31:0] $end
+$upscope $end
+$scope module decision $end
+$var wire 1 ! alarm $end
+$var wire 1 4 contamination $end
+$upscope $end
+$scope module feature $end
+$var wire 1 % clk $end
+$var wire 1 ( rst $end
+$var wire 8 H mercury [7:0] $end
+$var wire 8 I lead [7:0] $end
+$var wire 8 J chromium [7:0] $end
+$var wire 8 K cadmium [7:0] $end
+$var wire 8 L arsenic [7:0] $end
+$var reg 10 M average [9:0] $end
+$var reg 8 N maximum [7:0] $end
+$var reg 11 O sum [10:0] $end
+$var reg 11 P total [10:0] $end
+$upscope $end
+$scope module prep $end
+$var wire 1 % clk $end
+$var wire 1 ( rst $end
+$var wire 8 Q mercury_in [7:0] $end
+$var wire 8 R lead_in [7:0] $end
+$var wire 8 S chromium_in [7:0] $end
+$var wire 8 T cadmium_in [7:0] $end
+$var wire 8 U arsenic_in [7:0] $end
+$var reg 8 V arsenic_norm [7:0] $end
+$var reg 8 W cadmium_norm [7:0] $end
+$var reg 8 X chromium_norm [7:0] $end
+$var reg 8 Y lead_norm [7:0] $end
+$var reg 8 Z mercury_norm [7:0] $end
+$upscope $end
+$scope module sensor_if $end
+$var wire 8 [ arsenic_sensor [7:0] $end
+$var wire 8 \ cadmium_sensor [7:0] $end
+$var wire 8 ] chromium_sensor [7:0] $end
+$var wire 1 % clk $end
+$var wire 8 ^ lead_sensor [7:0] $end
+$var wire 8 _ mercury_sensor [7:0] $end
+$var wire 1 ( rst $end
+$var reg 8 ` arsenic_data [7:0] $end
+$var reg 8 a cadmium_data [7:0] $end
+$var reg 8 b chromium_data [7:0] $end
+$var reg 8 c lead_data [7:0] $end
+$var reg 8 d mercury_data [7:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1010 F
+b11110 E
+b10100 D
+b1111 C
+b11001 B
+b10111011100000 A
+$end
+#0
+$dumpvars
+b0 d
+b0 c
+b0 b
+b0 a
+b0 `
+b0 _
+b0 ^
+b0 ]
+b0 \
+b0 [
+b0 Z
+b0 Y
+b0 X
+b0 W
+b0 V
+b0 U
+b0 T
+b0 S
+b0 R
+b0 Q
+b0 P
+b0 O
+b0 N
+b0 M
+b0 L
+b0 K
+b0 J
+b0 I
+b0 H
+b0 G
+b0 @
+b0 ?
+b0 >
+b0 =
+b0 <
+b0 ;
+b0 :
+b0 9
+b0 8
+b0 7
+b0 6
+b0 5
+04
+b0 3
+b0 2
+b0 1
+b0 0
+b0 /
+b0 .
+b0 -
+b0 ,
+b0 +
+b0 *
+b0 )
+1(
+b0 '
+b0 &
+0%
+b0 $
+b0 #
+b0 "
+0!
+$end
+#5000
+1%
+#10000
+0%
+#15000
+1%
+#20000
+0%
+0(
+#25000
+1%
+#30000
+0%
+#35000
+1%
+#40000
+0%
+b10 '
+b10 -
+b10 _
+b1000 $
+b1000 +
+b1000 ]
+b11 #
+b11 *
+b11 \
+b101 "
+b101 )
+b101 [
+b1010 &
+b1010 ,
+b1010 ^
+#45000
+b10 0
+b10 Q
+b10 d
+b1000 6
+b1000 S
+b1000 b
+b11 8
+b11 T
+b11 a
+b101 ;
+b101 U
+b101 `
+b1010 3
+b1010 R
+b1010 c
+1%
+#50000
+0%
+#55000
+b10 /
+b10 <
+b10 H
+b10 Z
+b1000 5
+b1000 >
+b1000 J
+b1000 X
+b11 7
+b11 ?
+b11 K
+b11 W
+b101 :
+b101 @
+b101 L
+b101 V
+b1010 2
+b1010 =
+b1010 I
+b1010 Y
+1%
+#60000
+0%
+#65000
+b1010001010 G
+b10 1
+b10 N
+b101 9
+b101 M
+b11100 .
+b11100 P
+b11100 O
+1%
+#70000
+0%
+#75000
+b1000 1
+b1000 N
+1%
+#80000
+0%
+b11110 '
+b11110 -
+b11110 _
+b110111 $
+b110111 +
+b110111 ]
+b101000 #
+b101000 *
+b101000 \
+b110010 "
+b110010 )
+b110010 [
+b111100 &
+b111100 ,
+b111100 ^
+#85000
+b1010 1
+b1010 N
+b11110 0
+b11110 Q
+b11110 d
+b110111 6
+b110111 S
+b110111 b
+b101000 8
+b101000 T
+b101000 a
+b110010 ;
+b110010 U
+b110010 `
+b111100 3
+b111100 R
+b111100 c
+1%
+#90000
+0%
+#95000
+b11110 /
+b11110 <
+b11110 H
+b11110 Z
+b110111 5
+b110111 >
+b110111 J
+b110111 X
+b101000 7
+b101000 ?
+b101000 K
+b101000 W
+b110010 :
+b110010 @
+b110010 L
+b110010 V
+b111100 2
+b111100 =
+b111100 I
+b111100 Y
+1%
+#100000
+0%
+#105000
+b1001110111010 G
+b11110 1
+b11110 N
+b101111 9
+b101111 M
+b11101011 .
+b11101011 P
+b11101011 O
+1%
+#110000
+0%
+#115000
+b110111 1
+b110111 N
+1%
+#120000
+0%
+b10100000 '
+b10100000 -
+b10100000 _
+b10111110 $
+b10111110 +
+b10111110 ]
+b10101010 #
+b10101010 *
+b10101010 \
+b10110100 "
+b10110100 )
+b10110100 [
+b11001000 &
+b11001000 ,
+b11001000 ^
+#125000
+b111100 1
+b111100 N
+b10100000 0
+b10100000 Q
+b10100000 d
+b10111110 6
+b10111110 S
+b10111110 b
+b10101010 8
+b10101010 T
+b10101010 a
+b10110100 ;
+b10110100 U
+b10110100 `
+b11001000 3
+b11001000 R
+b11001000 c
+1%
+#130000
+0%
+#135000
+b10100000 /
+b10100000 <
+b10100000 H
+b10100000 Z
+b10111110 5
+b10111110 >
+b10111110 J
+b10111110 X
+b10101010 7
+b10101010 ?
+b10101010 K
+b10101010 W
+b10110100 :
+b10110100 @
+b10110100 L
+b10110100 V
+b11001000 2
+b11001000 =
+b11001000 I
+b11001000 Y
+1%
+#140000
+0%
+#145000
+b100100000010010 G
+b10100000 1
+b10100000 N
+b10110100 9
+b10110100 M
+b1110000100 .
+b1110000100 P
+b1110000100 O
+1%
+#150000
+0%
+#155000
+b10111110 1
+b10111110 N
+1!
+14
+1%
+#160000
+0%
+#165000
+b11001000 1
+b11001000 N
+1%
+#170000
+0%

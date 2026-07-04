@@ -13,11 +13,12 @@ module ai_classifier(
 
 );
 
-parameter signed W_LEAD      = 30;
-parameter signed W_ARSENIC   = 25;
-parameter signed W_CADMIUM   = 15;
-parameter signed W_CHROMIUM  = 20;
-parameter signed W_MERCURY   = 10;
+pparameter signed W_LEAD      = 536;
+parameter signed W_ARSENIC   = 446;
+parameter signed W_CADMIUM   = 266;
+parameter signed W_CHROMIUM  = 357;
+parameter signed W_MERCURY   = 178;
+
 
 parameter signed THRESHOLD = 12000;
 
@@ -35,17 +36,19 @@ always @(posedge clk or posedge rst) begin
     else begin
 
         score <=
-            lead      * W_LEAD +
-            arsenic   * W_ARSENIC +
-            cadmium   * W_CADMIUM +
-            chromium  * W_CHROMIUM +
-            mercury   * W_MERCURY;
+    lead      * W_LEAD +
+    arsenic   * W_ARSENIC +
+    cadmium   * W_CADMIUM +
+    chromium  * W_CHROMIUM +
+    mercury   * W_MERCURY +
+    BIAS;
 
-        if(score > THRESHOLD)
-            contamination <= 1'b1;
-        else
-            contamination <= 1'b0;
-
+        
+        if (score >= 0)
+    contamination <= 1'b1;
+else
+    contamination <= 1'b0;
+            
     end
 
 end
