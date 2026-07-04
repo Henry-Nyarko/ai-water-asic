@@ -1,36 +1,42 @@
-import numpy as np
 import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix
+import joblib
 
-np.random.seed(42)
+# Load dataset
+df = pd.read_csv("dataset/heavy_metal_dataset.csv")
 
-samples = 5000
+X = df[[
+    "lead",
+    "arsenic",
+    "cadmium",
+    "chromium",
+    "mercury"
+]]
 
-lead = np.random.randint(0,256,samples)
-arsenic = np.random.randint(0,256,samples)
-cadmium = np.random.randint(0,256,samples)
-chromium = np.random.randint(0,256,samples)
-mercury = np.random.randint(0,256,samples)
+y = df["label"]
 
-score = (
-    0.30*lead +
-    0.25*arsenic +
-    0.15*cadmium +
-    0.20*chromium +
-    0.10*mercury
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
 )
 
-label = (score > 120).astype(int)
+# Train model
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
 
-df = pd.DataFrame({
-    "lead":lead,
-    "arsenic":arsenic,
-    "cadmium":cadmium,
-    "chromium":chromium,
-    "mercury":mercury,
-    "label":label
-})
+# Evaluate
+pred = model.predict(X_test)
 
-df.to_csv("dataset/heavy_metal_dataset.csv",index=False)
+print("Accuracy:", accuracy_score(y_test, pred))
+print("\nConfusion Matrix:")
+print(confusion_matrix(y_test, pred))
 
-print(df.head())
-print("\nDataset saved successfully.")
+# Save trained model
+joblib.dump(model, "ml/heavy_metal_model.pkl")
+
+print("\nModel saved successfully.")
