@@ -1,0 +1,24 @@
+read_verilog rtl/sensor_interface.v
+read_verilog rtl/preprocessing.v
+read_verilog rtl/feature_extractor.v
+read_verilog rtl/ai_classifier.v
+read_verilog rtl/decision_unit.v
+read_verilog rtl/water_chip_ai.v
+
+hierarchy -top water_chip_ai
+
+proc
+opt
+
+fsm
+opt
+
+memory
+opt
+
+techmap
+opt
+
+stat
+
+write_verilog synthesis/water_chip_ai_netlist.v

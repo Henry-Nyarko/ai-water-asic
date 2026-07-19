@@ -1,8 +1,7 @@
-`timescale 1ns / 1ps
+`timescale 1ns/1ps
 
 module tb_water_chip_ai;
 
-// Inputs
 reg clk;
 reg rst;
 
@@ -12,10 +11,9 @@ reg [7:0] cadmium_sensor;
 reg [7:0] chromium_sensor;
 reg [7:0] mercury_sensor;
 
-// Output
 wire contamination_alarm;
 
-// DUT (Device Under Test)
+// Device Under Test
 water_chip_ai dut (
     .clk(clk),
     .rst(rst),
@@ -27,16 +25,14 @@ water_chip_ai dut (
     .contamination_alarm(contamination_alarm)
 );
 
-// Clock generation
+// Clock
 always #5 clk = ~clk;
 
-// Test sequence
 initial begin
 
     $dumpfile("water_chip_ai.vcd");
     $dumpvars(0, tb_water_chip_ai);
 
-    // Initialize
     clk = 0;
     rst = 1;
 
@@ -49,32 +45,24 @@ initial begin
     #20;
     rst = 0;
 
-    // CASE 1: Clean water
-    #20;
+    // Safe water
     lead_sensor = 10;
-    arsenic_sensor = 5;
-    cadmium_sensor = 3;
-    chromium_sensor = 8;
-    mercury_sensor = 2;
+    arsenic_sensor = 8;
+    cadmium_sensor = 5;
+    chromium_sensor = 7;
+    mercury_sensor = 6;
 
-    // CASE 2: Slight contamination
-    #40;
-    lead_sensor = 60;
-    arsenic_sensor = 50;
-    cadmium_sensor = 40;
-    chromium_sensor = 55;
-    mercury_sensor = 30;
-
-    // CASE 3: Dangerous water
-    #40;
-    lead_sensor = 200;
-    arsenic_sensor = 180;
-    cadmium_sensor = 170;
-    chromium_sensor = 190;
-    mercury_sensor = 160;
-
-    // Finish simulation
     #50;
+
+    // Contaminated water
+    lead_sensor = 180;
+    arsenic_sensor = 150;
+    cadmium_sensor = 120;
+    chromium_sensor = 160;
+    mercury_sensor = 140;
+
+    #100;
+
     $finish;
 
 end
