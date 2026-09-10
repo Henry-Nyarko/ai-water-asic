@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+
+# Simulation outputs
+*.vcd
+sim/
+*.log
+
+# Generated synthesis and implementation outputs
+runs/
+results/
+*.netlist.v
+
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/
+sim
